@@ -21,6 +21,8 @@ install_packages() {
       "docker.io"
       "docker-compose"
       "insomnia"
+      "abiword"
+      "gnumeric"
     )
 
     sudo apt update
