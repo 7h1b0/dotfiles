@@ -35,7 +35,7 @@ configure_gnome() {
   read -r -p "Configure Gnome 3 look ? [y/N] " answer
   if [[ "$answer" == y ]] || [[ "$answer" == Y ]]; then
     gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
-    gsettings set org.gnome.desktop.interface icon-theme "Papirus"
+    gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
     gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize:'
 
     gsettings set org.gnome.desktop.background picture-options 'zoom'
