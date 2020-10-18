@@ -9,6 +9,7 @@ install_packages() {
       "geary"
       "mumble"
       "restic"
+      "rclone"
       "zsh"
       "mkvtoolnix"
       "mkvtoolnix-gui"
@@ -23,6 +24,7 @@ install_packages() {
       "insomnia"
       "abiword"
       "gnumeric"
+      "gimp"
     )
 
     sudo apt update
