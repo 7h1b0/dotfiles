@@ -17,7 +17,6 @@ install_packages() {
       "spotify-client"
       "git"
       "codium"
-      "npm"
       "nodejs"
       "docker.io"
       "docker-compose"
@@ -82,6 +81,9 @@ source_packages() {
     printf 'Adding Spotify source...\n'
     wget -qO - https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add
     echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+
+    printf 'Adding NodeJs source...\n'
+    wget -qO - https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
     printf "Done.\n"
   fi
