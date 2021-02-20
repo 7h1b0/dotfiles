@@ -11,8 +11,7 @@ install_packages() {
       "restic"
       "rclone"
       "zsh"
-      "mkvtoolnix"
-      "mkvtoolnix-gui"
+      "ffmpeg"
       "papirus-icon-theme"
       "spotify-client"
       "git"
@@ -55,6 +54,7 @@ remove_packages() {
       "evolution"
       "libreoffice-core"
       "simple-scan"
+      "malcontent"
     )
 
     sudo apt autoremove --purge "${packages[@]}"
@@ -73,10 +73,6 @@ source_packages() {
     printf 'Adding Insomnia source...\n'
     wget -qO - https://insomnia.rest/keys/debian-public.key.asc | sudo apt-key add -
     echo "deb https://dl.bintray.com/getinsomnia/Insomnia /" | sudo tee /etc/apt/sources.list.d/insomnia.list
-
-    printf 'Adding Mkvtoolnix source...\n'
-    wget -qO - https://mkvtoolnix.download/gpg-pub-moritzbunkus.txt | sudo apt-key add -
-    echo "deb https://mkvtoolnix.download/debian/ buster main" | sudo tee /etc/apt/sources.list.d/mkvtoolnix.list 
 
     printf 'Adding Spotify source...\n'
     wget -qO - https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add

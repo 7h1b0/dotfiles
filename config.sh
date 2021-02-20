@@ -44,8 +44,21 @@ configure_gnome() {
   fi
 }
 
+configure_zsh() {
+  read -r -p "Configure zsh as default shell ? [y/N] " answer
+  if [[ "$answer" == y ]] || [[ "$answer" == Y ]]; then
+    chsh -s $(which zsh)
+  fi
+  
+  read -r -p "Install Oh-My-Zsh ? [y/N] " answer
+  if [[ "$answer" == y ]] || [[ "$answer" == Y ]]; then
+    sh -c "$(wget https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+  fi
+}
+
 configure_docker
 configure_npm
 configure_gnome
+configure_zsh
 
 printf "Configuration completed.\n"
