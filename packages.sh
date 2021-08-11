@@ -17,11 +17,12 @@ install_packages() {
       "git"
       "codium"
       "nodejs"
-      "docker.io"
-      "docker-compose"
+      "npm"
       "abiword"
       "gnumeric"
       "gimp"
+      "transmission"
+      "syncthing"
     )
 
     sudo apt update
@@ -52,6 +53,7 @@ remove_packages() {
       "gnome-calendar"
       "evolution"
       "libreoffice-core"
+      "libreoffice-common"
       "simple-scan"
       "malcontent"
     )
@@ -72,8 +74,9 @@ source_packages() {
     wget -qO - https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add
     echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
-    printf 'Adding NodeJs source...\n'
-    wget -qO - https://deb.nodesource.com/setup_14.x | sudo -E bash -
+    printf 'Adding Syncthing source...\n'
+    sudo curl -o /usr/share/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
+    echo "deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
 
     printf "Done.\n"
   fi

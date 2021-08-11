@@ -40,6 +40,10 @@ configure_gnome() {
 
     gsettings set org.gnome.desktop.background picture-options 'zoom'
     gsettings set org.gnome.desktop.background picture-uri "file://"$PWD"//Wallpaper.jpg"
+
+    gsettings set org.gnome.desktop.interface document-font-name 'Inter 11'
+    gsettings set org.gnome.desktop.interface font-name 'Inter 11'
+    gsettings set org.gnome.desktop.interface monospace-font-name 'Inter 11'
     printf "Done.\n"
   fi
 }
