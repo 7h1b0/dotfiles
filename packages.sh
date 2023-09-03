@@ -4,24 +4,25 @@ install_packages() {
   read -r -p "Add packages ? [y/N] " answer
   if [[ "$answer" == y ]] || [[ "$answer" == Y ]]; then
     packages=(
+      "zsh"
+      "rclone"
+      "ffmpeg"
+      "restic"
       "gnome-tweaks"
+      "papirus-icon-theme"
       "filezilla"
       "geary"
       "mumble"
-      "restic"
-      "rclone"
-      "zsh"
-      "ffmpeg"
-      "papirus-icon-theme"
-      "spotify-client"
       "git"
       "codium"
       "nodejs"
       "npm"
+      "chromium"
+      "transmission"
       "abiword"
       "gnumeric"
       "gimp"
-      "transmission"
+      "vlc"
       "syncthing"
     )
 
@@ -44,6 +45,7 @@ remove_packages() {
       "rhythmbox"
       "cheese"
       "gnome-documents"
+      "gnome-text-editor"
       "vinagre"
       "gnome-clocks"
       "shotwell"
@@ -56,6 +58,7 @@ remove_packages() {
       "libreoffice-common"
       "simple-scan"
       "malcontent"
+      "totem"
     )
 
     sudo apt autoremove --purge "${packages[@]}"
@@ -71,9 +74,9 @@ source_packages() {
     echo 'deb [signed-by=/etc/apt/trusted.gpg.d/vscodium-archive-keyring.gpg] https://paulcarroty.gitlab.io/vscodium-deb-rpm-repo/debs/ vscodium main' | sudo tee /etc/apt/sources.list.d/vscodium.list
 
     printf 'Adding Spotify source...\n'
-    wget -qO - https://download.spotify.com/debian/pubkey_0D811D58.gpg | sudo apt-key add
+    curl -sS https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg | sudo gpg --dearmor --yes -o /etc/apt/trusted.gpg.d/spotify.gpg
     echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
-
+    
     printf 'Adding Syncthing source...\n'
     sudo curl -o /usr/share/keyrings/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
     echo "deb [signed-by=/usr/share/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list

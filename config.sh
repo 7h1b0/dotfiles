@@ -36,14 +36,27 @@ configure_gnome() {
   if [[ "$answer" == y ]] || [[ "$answer" == Y ]]; then
     gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"
     gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
-    gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize:'
+    gsettings set org.gnome.desktop.interface enable-hot-corners false
 
-    gsettings set org.gnome.desktop.background picture-options 'zoom'
-    gsettings set org.gnome.desktop.background picture-uri "file://"$PWD"//Wallpaper.jpg"
+    gsettings set org.gnome.desktop.interface clock-show-date true
+    gsettings set org.gnome.desktop.interface clock-show-seconds false
+    gsettings set org.gnome.desktop.interface clock-show-weekday false
 
     gsettings set org.gnome.desktop.interface document-font-name 'Inter 11'
     gsettings set org.gnome.desktop.interface font-name 'Inter 11'
     gsettings set org.gnome.desktop.interface monospace-font-name 'Inter 11'
+
+    gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize:'
+
+    gsettings set org.gnome.desktop.wm.keybindings close "['<Control>q']"
+    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['<Super>Left']"
+    gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-right "['<Super>Right']"
+    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-left "['<Shift><Super>Left']"
+    gsettings set org.gnome.desktop.wm.keybindings move-to-workspace-right "['<Shift><Super>Right']"
+
+    gsettings set org.gnome.mutter.keybindings toggle-tiled-left "['<Control><Super>Left']"
+    gsettings set org.gnome.mutter.keybindings toggle-tiled-right "['<Control><Super>Right']"
+
     printf "Done.\n"
   fi
 }
